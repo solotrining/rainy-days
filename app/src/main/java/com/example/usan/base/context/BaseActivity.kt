@@ -22,6 +22,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel>(
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         binding = bindingFactory(layoutInflater)
+        setContentView(binding.root)
         binding.lifecycleOwner = this
 
         afterBinding()
@@ -30,6 +31,8 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel>(
 
     abstract fun observeAndInitViewModel()
     abstract fun afterBinding()
+    abstract fun checkNetwork(): Boolean
+
 
     protected fun binding(action: T.() -> Unit) {
         binding.run(action)
