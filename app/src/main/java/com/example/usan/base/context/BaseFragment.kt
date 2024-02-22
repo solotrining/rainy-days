@@ -52,4 +52,10 @@ abstract class BaseFragment <T : ViewDataBinding, V : BaseViewModel>(private val
 
     protected fun popUpBackStack() = findNavController().popBackStack()
 
+    protected fun handleBaseViewEvent(event: BaseViewModel.BaseEvent) {
+        when (event) {
+            is BaseViewModel.BaseEvent.BackClick -> popUpBackStack()
+        }
+    }
+
 }
