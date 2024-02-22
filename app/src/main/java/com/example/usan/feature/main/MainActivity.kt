@@ -16,19 +16,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>({ActivityM
     override val activityViewModel: MainViewModel by viewModels()
     private lateinit var navController: NavController
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun observeAndInitViewModel() = binding {
-        viewModel = activityViewModel.apply {
-
-        }
-    }
+    override fun observeAndInitViewModel() = binding { viewModel = activityViewModel.apply {} }
 
     override fun afterBinding() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHostFragment.navController
     }
 
