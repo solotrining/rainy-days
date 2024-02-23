@@ -10,7 +10,7 @@ data class WeatherRes(
 ) : Weather {
 
     override val response: Weather.Response
-        get() = WeatherMapper.WeatherToWeather(this)
+        get() = WeatherMapper.weatherToWeather(this)
 
     data class Response(
         val header: Header,

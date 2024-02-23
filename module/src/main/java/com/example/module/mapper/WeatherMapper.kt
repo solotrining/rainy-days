@@ -5,7 +5,7 @@ import com.example.module.data.response.WeatherRes
 
 object WeatherMapper {
 
-    fun WeatherToWeather(weatherRes: WeatherRes): Weather.Response {
+    fun weatherToWeather(weatherRes: WeatherRes): Weather.Response {
         return Weather.Response(
             Weather.Header(weatherRes._response.header.resultCode, weatherRes._response.header.resultMsg),
             Weather.Body(
