@@ -9,10 +9,10 @@ interface WeatherRemoteSource {
         dataType : String,
         numOfRows : Int,
         pageNo : Int,
-        baseData : Int,
-        baseTime : Int,
-        nx : String,
-        ny : String)
+        baseData : String,
+        baseTime : String,
+        nx : Int,
+        ny : Int)
     : WeatherRes
 }
 
@@ -23,10 +23,10 @@ class WeatherRemoteSourceImpl @Inject constructor(
         dataType : String,
         numOfRows : Int,
         pageNo : Int,
-        baseData : Int,
-        baseTime : Int,
-        nx : String,
-        ny : String
+        baseData : String,
+        baseTime : String,
+        nx : Int,
+        ny : Int
     ): WeatherRes = api.getWeather(dataType, numOfRows, pageNo, baseData, baseTime, nx, ny)
 
 }

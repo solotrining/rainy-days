@@ -7,9 +7,9 @@ interface WeatherRepository {
         dataType : String,
         numOfRows : Int,
         pageNo : Int,
-        baseData : Int,
-        baseTime : Int,
-        nx : String,
-        ny : String
+        baseData : String,
+        baseTime : String,
+        nx : Int,
+        ny : Int
     ) : Weather
 }

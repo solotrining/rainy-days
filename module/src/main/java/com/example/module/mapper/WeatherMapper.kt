@@ -9,7 +9,7 @@ object WeatherMapper {
         return Weather.Response(
             Weather.Header(weatherRes._response.header.resultCode, weatherRes._response.header.resultMsg),
             Weather.Body(
-                dataType = weatherRes._response.body.dataType,
+                dataType = "JSON",
                 items = Weather.Items(
                     item = item(weatherRes._response.body.items)
                 )
