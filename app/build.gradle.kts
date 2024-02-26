@@ -2,11 +2,14 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
+
 
 android {
     namespace = "com.example.usan"
     compileSdk = 34
+
 
     defaultConfig {
         applicationId = "com.example.usan"
@@ -42,6 +45,9 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":domain"))
+    implementation(project(":module"))
 
 
     implementation("androidx.core:core-ktx:1.5.0")

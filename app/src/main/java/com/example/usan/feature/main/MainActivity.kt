@@ -10,7 +10,9 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.usan.R
 import com.example.usan.base.context.BaseActivity
 import com.example.usan.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>({ActivityMainBinding.inflate(it)}) {
 
     override val activityViewModel: MainViewModel by viewModels()
