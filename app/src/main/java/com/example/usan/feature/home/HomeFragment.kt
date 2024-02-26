@@ -7,8 +7,10 @@ import androidx.fragment.app.viewModels
 import com.example.usan.base.context.BaseFragment
 import com.example.usan.base.viewmodel.repeatOnStarted
 import com.example.usan.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(FragmentHomeBinding::inflate) {
     override val fragmentViewModel: HomeViewModel by viewModels()
 
