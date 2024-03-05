@@ -43,6 +43,9 @@ class HomeViewModel @Inject constructor(
         data class ClockClick(val unit : Unit? = null) : HomeEvent()
     }
 
+    fun setTime(time : String) { preferencesManager.setData("time", time) }
+    fun getTime() = preferencesManager.getString("time")
+
     fun getWeather(nx : Int, ny : Int) {
         val month = Util.monthConverter[LocalDate.now().monthValue]
         val baseDate = "${LocalDate.now().year}$month${LocalDate.now().format(DateTimeFormatter.ofPattern("dd"))}"

@@ -50,11 +50,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(FragmentHo
 
         Log.e("lastLocation", "${lastLocation}")
 
+        if (fragmentViewModel.getTime() != "") binding.time = fragmentViewModel.getTime()
+        else binding.time = "6"
+
         if (lastLocation != null) fragmentViewModel.getWeather(lastLocation.latitude.toInt(), lastLocation.longitude.toInt())
         else fragmentViewModel.getWeather(60, 127)
 
         setFragmentResultListener(HOME_FRAGMENT) { key, result ->
-            binding.time = "${result.getInt(key)} : 00"
+            val data = result.getInt(key)
+            binding.time = "$data : 00"
+            fragmentViewModel.setTime(data.toString())
         }
     }
 
