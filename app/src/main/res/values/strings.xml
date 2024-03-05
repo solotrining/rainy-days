@@ -2,7 +2,7 @@
     <string name="app_name">usan</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="time_title">"현재 설정된 시간"</string>
+    <string name="time_title">"현재 설정된 알람 시간"</string>
     <string name="time_slider">~</string>
     <string name="take_umbrella">우산을 챙겨 가시는걸 추천해요!</string>
 </resources>

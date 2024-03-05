@@ -1,5 +1,6 @@
 package com.example.usan.feature.home
 
+import android.location.LocationManager
 import android.util.Log
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -7,9 +8,14 @@ import com.example.domain.usecase.weather.GetWeatherUseCase
 import com.example.usan.base.viewmodel.BaseViewModel
 import com.example.usan.base.viewmodel.MutableEventFlow
 import com.example.usan.base.viewmodel.asEventFlow
+import com.example.usan.util.Util
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,23 +39,22 @@ class HomeViewModel @Inject constructor(
     val takeUmbrellaText
         get() = _takeUmbrellaText.asLiveData()
 
-    init {
-        getWeather()
-    }
-
     sealed class HomeEvent {
         data class ClockClick(val unit : Unit? = null) : HomeEvent()
     }
 
-    private fun getWeather() {
+    fun getWeather(nx : Int, ny : Int) {
+        val month = Util.monthConverter[LocalDate.now().monthValue]
+        val baseDate = "${LocalDate.now().year}$month${LocalDate.now().format(DateTimeFormatter.ofPattern("dd"))}"
+
         getWeatherUseCase.invoke(
             dataType = "JSON",
             numOfRows = 1000,
             1,
-            "20240226",
+            baseData = baseDate,
             "0500",
-            55,
-            127,
+            nx = nx,
+            ny = ny,
             scope = viewModelScope,
             onResult = {
                 it.response.body.items.item.forEach { item ->
