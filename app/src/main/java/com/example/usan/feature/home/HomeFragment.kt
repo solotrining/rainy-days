@@ -50,8 +50,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(FragmentHo
 
         Log.e("lastLocation", "${lastLocation}")
 
-        if (fragmentViewModel.getTime() != "") binding.time = fragmentViewModel.getTime()
-        else binding.time = "6"
+        if (fragmentViewModel.getTime() != "") binding.time = "${fragmentViewModel.getTime()} : 00"
+        else binding.time = "6 : 00"
 
         if (lastLocation != null) fragmentViewModel.getWeather(lastLocation.latitude.toInt(), lastLocation.longitude.toInt())
         else fragmentViewModel.getWeather(60, 127)
